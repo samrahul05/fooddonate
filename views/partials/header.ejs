@@ -1,0 +1,22 @@
+<header>
+	<nav class="navbar navbar-expand-sm navbar-light p-0 h-100">
+		<div class="container-fluid p-0">
+			<a class="navbar-brand text-white ps-2" href="/">Food Donate</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span><i class="fas fa-bars text-white"></i></span>
+			</button>
+			<div class="collapse navbar-collapse ps-2" id="navbarSupportedContent" style="z-index: 100;">
+				<ul class="navbar-nav ms-auto me-3">
+					
+					<% if(currentUser) { %>
+						<li><a href="/auth/logout" class="btn chnage"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+					<% } else { %>
+						<li class="nav-item"><a class="nav-link" href="/auth/login">Login</a></li>
+						<li class="nav-item"><a class="nav-link" href="/auth/signup">Signup</a></li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>

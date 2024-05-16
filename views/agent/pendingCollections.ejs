@@ -1,0 +1,44 @@
+<main>
+    <% include('../partials/agentSidebar') %>
+
+    <div id="main-wrapper">
+
+        <div class="bg-white shadow-sm p-3">
+            <span class="me-3" id="sidebar-toggler-btn"><i class="fa-solid fa-left-long"></i></span>
+            <h5 class="m-0 color-theme d-inline-block">Pending Collections</h5>
+        </div>
+
+        <div class="col col-sm-10 col-12 m-auto my-4" style="max-height: 75%; overflow: auto;">
+            <table class="table  table-striped table-hover m-0 bg-white">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Donor name</th>
+                        <th scope="col">Address to collect</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i<pendingCollections.length; i++) { %>
+                        <tr>
+                            <th scope="row"> <%= i+1 %> </th>
+                            <td> <%= pendingCollections[i].donor.firstName + " " + pendingCollections[i].donor.lastName %> </td>
+                            <td> <%= pendingCollections[i].address %> </td>
+                            <td> <%= pendingCollections[i].phone %> </td>
+                            <!-- Fixed typo: pendingDonations[i] to pendingCollections[i] -->
+                            <td> <a href="https://www.google.com/maps?q=<%= pendingCollections[i].latitude %>,<%= pendingCollections[i].longitude %>" target="_blank" class="btn">View Location</a> </td>
+                            <td>
+                                <a href="/agent/collection/view/<%= pendingCollections[i]._id %>" class="btn">View</a>
+                                <a href="/agent/collection/collect/<%= pendingCollections[i]._id %>" class="btn">Collect</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</main>
